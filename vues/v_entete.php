@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr-fr">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,8 +8,8 @@
     <title>Portail de la M2L</title>
 
     <!-- Bootstrap -->
-    <link href="public/css/bootstrap.min.css" rel="stylesheet" >
-    <link href="public/css/sticky-footer-navbar.css" rel="stylesheet" >
+    <link href="./public/css/bootstrap.min.css" rel="stylesheet" >
+    <link href="./public/css/sticky-footer-navbar.css" rel="stylesheet" >
 
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -22,36 +22,72 @@
 <body>
 
 <!-- Fixed navbar -->
-<nav class="navbar navbar-default navbar-fixed-top">
+<nav class="navbar navbar-default navbar-fixed-top navbar-light" style="background-color: #e3f2fd;">
     <div class="container">
         <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="#">M2L</a>
+            <a class="navbar-brand" href="index.php?uc=accueil">Maison des Ligues de Lorraine</a>
         </div>
         <div id="navbar" class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
-                <li class="active"><a href="#">Planings</a></li>
-                <li><a href="#about">Réserver</a></li>
+                <li class="dropdown" class="active">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">M2L en pratique <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+
+                        <li><a href="index.php?uc=m2lpratiques&action=presentation">Présentation de la M2L</a></li>
+
+                        <li><a href="index.php?uc=m2lpratiques&action=locaux">Les locaux</a></li>
+
+                        <li role="separator" class="divider"></li>
+
+                        <li class="dropdown-header">Les services proposés</li>
+
+                        <li><a href="index.php?uc=m2lpratiques&action=telecommunications">Télécommunications</a></li>
+
+                        <li><a href="#">Communications</a></li>
+
+                        <li><a href="#">Modalités d'accès</a></li>
+
+                        <li><a href="#">Services informatiques</a></li>
+
+
+                    </ul>
+                </li>
+                <li><a href="index.php?uc=ligues&action=afficherDepartements">Les ligues</a></li>
+
+                <?php
+
+                    if(!isset($_SESSION['idUtilisateur']))
+                    {
+                ?>
+
+                        <li><a href="index.php?uc=intranet&action=accueil">Intranet de la M2L</a></li>
+
+                <?php
+                    }
+                else {
+                ?>
+
                 <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Espace réservé <span class="caret"></span></a>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Espace personnel <span class="caret"></span></a>
                     <ul class="dropdown-menu">
                         <li><a href="#">Voir mes réservations</a></li>
                         <li><a href="#">Annuler une réservation</a></li>
-                        <li role="separator" class="divider"></li>
-                        <li class="dropdown-header">Admin</li>
-                        <li><a href="#">Ajouter une salle</a></li>
-                        <li><a href="#">Modifier une salle</a></li>
+                        <li><a href="index.php?uc=deconnexion&action=deconnexion"">Se déconnecter</a></li>
                     </ul>
                 </li>
+<?php
+}
+?>
+
             </ul>
-        </div><!--/.nav-collapse -->
+        </div>
     </div>
 </nav>
+
+<br/>
+<br/>
+<br/>
+
 
 
 
